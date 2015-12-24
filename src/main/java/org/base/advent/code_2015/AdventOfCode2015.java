@@ -2,6 +2,8 @@ package org.base.advent.code_2015;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
@@ -37,10 +39,19 @@ public class AdventOfCode2015 {
 	private static List<AdventDay> loadSolutions() throws Exception {
 		Reflections reflections = new Reflections("org.base.advent.code_2015.answer");
 		Set<Class<? extends AdventDay>> solutionClasses = reflections.getSubTypesOf(AdventDay.class);
+		Comparator<Class<? extends AdventDay>> sorter =
+				new Comparator<Class<? extends AdventDay>>() {
+					public int compare(Class<? extends AdventDay> o1, Class<? extends AdventDay> o2) {
+						return o1.getSimpleName().compareTo(o2.getSimpleName());
+					}
+		};
+		
+		List<Class<? extends AdventDay>> sortedClasses = new ArrayList<Class<? extends AdventDay>>();
+		sortedClasses.addAll(solutionClasses);
+		Collections.sort(sortedClasses, sorter);
 		
 		List<AdventDay> solutions = new ArrayList<AdventDay>();
-		
-		for (Class<? extends AdventDay> type : solutionClasses) {
+		for (Class<? extends AdventDay> type : sortedClasses) {
 			solutions.add(type.newInstance());
 		}
 		

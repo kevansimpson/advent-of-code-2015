@@ -1,6 +1,5 @@
 package org.base.advent.code_2015.answer;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,7 +36,6 @@ public class SolutionDay05 implements AdventDay {
 		Pattern nonOverlappingLetterPairs = Pattern.compile("([a-z]{2}).*\\1+", Pattern.DOTALL);
 		Pattern sandwichLetters = Pattern.compile("([a-z]).\\1+", Pattern.DOTALL);
 
-//		List<String> input = Arrays.asList("aaa", "qjhvhtzxzqqjkmpb", "xxyxx", "uurcxstgmygtbstg", "ieodomkazucvgmuy");
 		List<String> input = AdventOfCode2015.readLines("/day05input.txt");
 		int matches = 0;
  
@@ -52,13 +50,13 @@ public class SolutionDay05 implements AdventDay {
 	}
 	
 	protected int countMatches(String input, Pattern pattern) {
-		int count = 0, start = 0;
+		int count = 0;
 		Matcher matcher = pattern.matcher(input);
 		
 		while (matcher.find()) {
 			count++;
 		}
-		System.out.println(input +" = "+ count);
+
 		return count;
 	}
 }
