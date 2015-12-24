@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.base.advent.code_2015.AdventDay;
 import org.base.advent.code_2015.AdventOfCode2015;
+import org.base.advent.util.Coord;
 
 /**
  *
@@ -60,34 +61,5 @@ public class SolutionDay03 implements AdventDay {
 	protected Coord deliverPresentAt(Coord coord) {
 		presentCount.put(coord, DELIVERED_PRESENT);
 		return coord;
-	}
-
-	public static class Coord {
-		public final int x, y;
-
-		public Coord(int x, int y) {
-			this.x = x;
-			this.y = y;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (obj instanceof Coord) {
-				Coord c = (Coord) obj;
-				return this.x == c.x && this.y == c.y;
-			}
-			
-			return false;
-		}
-
-		@Override
-		public int hashCode() {
-			return 19 + (7 * this.toString().hashCode());
-		}
-
-		@Override
-		public String toString() {
-			return "["+ this.x +","+ this.y +"]";
-		}
 	}
 }
