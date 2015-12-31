@@ -1,11 +1,6 @@
 package org.base.advent.code_2015.answer;
 
-import java.io.File;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.base.advent.code_2015.AdventDay;
-import org.base.advent.code_2015.AdventOfCode2015;
 
 /**
  *

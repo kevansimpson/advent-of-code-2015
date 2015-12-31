@@ -36,11 +36,9 @@ public class SolutionDay09 implements AdventDay {
 		buildAllPaths(locationList, permutation);
 		
 		int lowest = Integer.MAX_VALUE;
-		List<String> shortestPath = null;
 		for (List<String> path : distanceMap.keySet()) {
 			Integer dist = distanceMap.get(path);
 			if (dist < lowest) {
-				shortestPath = path;
 				lowest = dist;
 			}
 		}
