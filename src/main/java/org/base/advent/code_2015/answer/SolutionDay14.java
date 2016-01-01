@@ -23,15 +23,13 @@ public class SolutionDay14 implements AdventDay {
 		Map<String, ReindeerSpeed> speedMap = buildSpeedMap(input);
 		TreeMap<Integer, List<String>> distanceMap = buildDistanceMap(speedMap, 2503);
 
-		System.out.println("The winning reindeer has traveled "+ distanceMap.lastKey());
+		System.out.println(String.format("The winning reindeer has traveled %d miles", distanceMap.lastKey()));
 	}
 
 	public void solvePuzzle2() throws Exception {
 		List<String> input = AdventOfCode2015.readLines("/day14input.txt");
 		Map<String, ReindeerSpeed> speedMap = buildSpeedMap(input);
 		Map<String, String> pointMap = new HashMap<>();
-
-		debug(speedMap);
 
 		for (String reindeer : speedMap.keySet()) {
 			pointMap.put(reindeer, "");
@@ -44,7 +42,6 @@ public class SolutionDay14 implements AdventDay {
 				pointMap.put(winnerAt, pointMap.get(winnerAt).concat("."));
 		}
 
-		System.err.println(pointMap);
 		int highest = 0;
 		String winner = null;
 		for (String reindeer : pointMap.keySet()) {
